@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+Hello @ViewData["name"]
+
+<h2>Products list using ViewData</h2>
+<ol>
+    @foreach (var item in (List<String>)ViewData["products"])
+    {
+        <li>
+            @item
+        </li>
+    }
+</ol>`
+
+<h2>data using ViewBag</h2>
+Hello @ViewBag.Myname
+
+<ol>
+    @foreach (var itm in ViewBag.MyListData)
+    {
+        <li>
+            @itm
+        </li>
+    }
+</ol>
+
+<h2>data using TempData and Session</h2>
+hello you first name is @ViewData["fname"]
+<br /> and last name is @ViewBag.lastname
+<br />
+so your complete name is @TempData["fullname"] and
+<br />
+Session value is @Session["Address"] this is your address
+
+
+<h2>data using TempData --peek() and keep()</h2>
+Peek data - extract
+
+
+<br />
+@{
+    string str = TempData.Peek("fullname").ToString();
+}
+
+keep data - keep data on refresh as well
+
+
+<br />
+@{
+    TempData.Keep("fullname");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
